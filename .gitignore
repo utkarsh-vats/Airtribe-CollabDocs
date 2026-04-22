@@ -1,0 +1,14 @@
+/venv 
+\venv
+venv/
+*.env 
+.env 
+.env.local 
+.env*.local 
+*.env*.local 
+/__pycache__ 
+__pycache__ 
+__pycache__/
+*.pyc
+teamboard_plan.md
+project_requirements.md
