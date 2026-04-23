@@ -66,11 +66,11 @@ class WorkspaceMemberSerializer(serializers.ModelSerializer):
 
 class DocumentSerializer(serializers.ModelSerializer):
     created_by = UserSerializer(read_only=True)
-    created_by_id = serializers.PrimaryKeyRelatedField(
-        queryset=User.objects.all(),
-        source='created_by',
-        write_only=True
-    )
+    # created_by_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=User.objects.all(),
+    #     source='created_by',
+    #     write_only=True
+    # )
 
     # tags = TagSerializer(many=True, read_only=True)
     tags = serializers.StringRelatedField(many=True, read_only=True)
@@ -87,7 +87,7 @@ class DocumentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Document
-        fields = ['id', 'title', 'content', 'workspace', 'tags', 'tag_ids', 'created_by', 'created_by_id', 'status', 'version_count', 'created_at', 'updated_at']
+        fields = ['id', 'title', 'content', 'workspace', 'tags', 'tag_ids', 'created_by', 'status', 'version_count', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_at', 'updated_at']
 
     def get_version_count(self, obj):
