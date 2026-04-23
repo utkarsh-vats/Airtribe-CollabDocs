@@ -135,7 +135,7 @@ class CommentSerializer(serializers.ModelSerializer):
         return CommentSerializer(replies, many=True).data
 
 class TagSerializer(serializers.ModelSerializer):
-    document_count = serializers.SerializerMethodField()
+    document_count = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Tag
