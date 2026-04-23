@@ -15,10 +15,24 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         fields = ['username', 'first_name', 'last_name', 'email', 'phone', 'password']
         extra_kwargs = {'password': {'write_only': True}}
 
+    def validate_email(self, value):
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("A user with this email already exists.")
+        return value
+
+    def validate_password(self, value):
+        if len(value) < 8:
+            raise serializers.ValidationError("Password must be at least 8 characters.")
+        if not any(c.isupper() for c in value):
+            raise serializers.ValidationError("Password must contain at least one uppercase letter.")
+        if not any(c.isdigit() for c in value):
+            raise serializers.ValidationError("Password must contain at least one digit.")
+        return value
+    
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
-    
+
 class WorkspaceSerializer(serializers.ModelSerializer):
     owner = UserSerializer(read_only=True)
     member_count = serializers.SerializerMethodField()
