@@ -12,3 +12,4 @@ __pycache__/
 *.pyc
 teamboard_plan.md
 project_requirements.md
+postman_tests.md

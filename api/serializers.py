@@ -62,7 +62,7 @@ class WorkspaceMemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkspaceMember
         fields = ['id', 'workspace', 'user', 'user_id', 'role', 'joined_at', 'updated_at']
-        read_only_fields = ['id', 'joined_at', 'updated_at']
+        read_only_fields = ['id', 'workspace', 'joined_at', 'updated_at']
 
 class DocumentSerializer(serializers.ModelSerializer):
     created_by = UserSerializer(read_only=True)

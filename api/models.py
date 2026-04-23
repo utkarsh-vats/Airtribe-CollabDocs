@@ -61,7 +61,7 @@ class Document(BaseModel):
 
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True, default="")
-    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE)
+    workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE, related_name='documents')
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     status = models.CharField(max_length=10, choices=Statuses.choices, default=Statuses.DRAFT)
 

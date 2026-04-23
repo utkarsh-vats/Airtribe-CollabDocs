@@ -1,6 +1,7 @@
-from dotenv import load_dotenv
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -96,6 +97,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1) if DEBUG else timedelta(minutes=15),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3),
+    # 'ROTATE_REFRESH_TOKENS': False,
+}
 
 AUTH_USER_MODEL = 'api.User'
 
