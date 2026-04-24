@@ -9,6 +9,6 @@ class RequestLoggingMiddleware:
         response = self.get_response(request)
         duration_ms = (time.time() - start_time) * 1000
         print(
-            f"{request.method} {request.path} - {response.status_code} - {duration_ms:.2f}ms"
+            f"{request.method} \t{request.path} \t- \t{response.status_code} \t- \t{duration_ms:.2f}ms"
         )
         return response
