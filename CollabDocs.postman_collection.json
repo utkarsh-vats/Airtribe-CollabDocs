@@ -1,0 +1,2208 @@
+{
+	"info": {
+		"_postman_id": "f89da4f2-15d7-4704-acf8-a88eab22de15",
+		"name": "Airtribe_CollabDocs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11649124"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "#1 - Register_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testuser\",\r\n    \"first_name\": \"test\",\r\n    \"last_name\": \"user\",\r\n    \"email\": \"test@test.com\",\r\n    \"phone\": \"9876543210\",\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#2 - Register_User_Validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testuser\",\r\n    \"first_name\": \"test\",\r\n    \"last_name\": \"user\",\r\n    \"email\": \"test@test.com\",\r\n    \"phone\": \"9876543210\",\r\n    \"password\": \"test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#3 - Get_Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testuser\",\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#51 - Delete_User_Method_Not_Allowed",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/{{user2_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"{{user2_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#4 - Get_Token_Bad_Creds",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testuser\",\r\n    \"password\": \"Test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/token/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#5 - Get_Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#6 - Get_Users_noAuth",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#7 - Get_Users_by_ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/75433171-943f-4c1d-98f5-8d97b9fbbb51",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"75433171-943f-4c1d-98f5-8d97b9fbbb51"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workspaces",
+			"item": [
+				{
+					"name": "Workspace_Members",
+					"item": [
+						{
+							"name": "#14 - List_Members",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/members/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"members",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#17 - List_Members_After_Add",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/members/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"members",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#15 - Add_Members",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": \"{{user1_id}}\",\r\n    \"role\": \"EDITOR\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/members/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"members",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#16 - Add_Duplicate_Member",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": \"{{user1_id}}\",\r\n    \"role\": \"VIEWER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/members/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"members",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#18 - Add_Members_Invalid_Role",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": \"{{user1_id}}\",\r\n    \"role\": \"SUPERUSER\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/members/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"members",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Workspace_Stats",
+					"item": [
+						{
+							"name": "#19 - Workspace_Stats",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/stats/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"stats",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#48 - Workspace_Stats_After_Data",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/stats/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										"stats",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "#8 - Create_Workspace",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Engineering\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#50 - Edge_Case_Create_Workspace_Unauthorized",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Development\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#9 - Create_Workspace_Blank_Name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#10 - List_Workspaces",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#11 - Workspace_Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/{{workspace_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#12 - Workspace_Details_not_found",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/00000000-0000-0000-0000-000000000000/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								"00000000-0000-0000-0000-000000000000",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#13 - Update_Workspace",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Engineering Team\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/workspaces/{{workspace_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"workspaces",
+								"{{workspace_id}}",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update_Workspace",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Engineering Team\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/workspaces/{{workspace_id}}/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"workspaces",
+										"{{workspace_id}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 23 Apr 2026 07:30:35 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.14.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "395"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"d3e51543-1b14-44f6-8e82-6d9b50c099a2\",\n    \"name\": \"Engineering Team\",\n    \"owner\": {\n        \"id\": \"31359348-a4d3-4eec-acdf-182558645635\",\n        \"username\": \"testuser\",\n        \"email\": \"test@test.com\",\n        \"first_name\": \"test\",\n        \"last_name\": \"user\",\n        \"phone\": \"9876543210\",\n        \"date_joined\": \"2026-04-23T05:06:42.404238Z\"\n    },\n    \"member_count\": 1,\n    \"is_active\": true,\n    \"created_at\": \"2026-04-23T07:13:57.764646Z\",\n    \"updated_at\": \"2026-04-23T07:30:35.608093Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "#20- Create_Tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"django\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tags/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#21 - Create_Duplicate_Tag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"python\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tags/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#22 - List_Tags",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tags/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#22 - List_Tags_Filter_Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/tags/?name=python",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tags",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "python"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "Documents_Versions",
+					"item": [
+						{
+							"name": "#30 - List_Document_Versions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/{{document3_id}}}/versions/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										"{{document3_id}}}",
+										"versions",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "#30 - List_Document_Versions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/documents/{{document3_id}}}/versions/",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"documents",
+												"{{document3_id}}}",
+												"versions",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 23 Apr 2026 08:59:27 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.14.3"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept"
+										},
+										{
+											"key": "Allow",
+											"value": "GET, HEAD, OPTIONS"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1580"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": \"a42ddfa6-2e1c-401d-b328-c2c9d280d92a\",\n        \"document\": \"8d772e49-153e-4997-8e12-04e076ebe228\",\n        \"title\": \"Getting Started v2\",\n        \"content\": \"Updated content with more details.\",\n        \"version_number\": 3,\n        \"saved_by\": {\n            \"id\": \"31359348-a4d3-4eec-acdf-182558645635\",\n            \"username\": \"testuser\",\n            \"email\": \"test@test.com\",\n            \"first_name\": \"test\",\n            \"last_name\": \"user\",\n            \"phone\": \"9876543210\",\n            \"date_joined\": \"2026-04-23T05:06:42.404238Z\"\n        },\n        \"saved_at\": \"2026-04-23T08:52:01.087781Z\",\n        \"created_at\": \"2026-04-23T08:52:01.087729Z\",\n        \"updated_at\": \"2026-04-23T08:52:01.087745Z\"\n    },\n    {\n        \"id\": \"adf43ab0-734b-490b-8a64-2538ddc38247\",\n        \"document\": \"8d772e49-153e-4997-8e12-04e076ebe228\",\n        \"title\": \"Getting Started v2\",\n        \"content\": \"Updated content with more details.\",\n        \"version_number\": 2,\n        \"saved_by\": {\n            \"id\": \"31359348-a4d3-4eec-acdf-182558645635\",\n            \"username\": \"testuser\",\n            \"email\": \"test@test.com\",\n            \"first_name\": \"test\",\n            \"last_name\": \"user\",\n            \"phone\": \"9876543210\",\n            \"date_joined\": \"2026-04-23T05:06:42.404238Z\"\n        },\n        \"saved_at\": \"2026-04-23T08:49:40.710877Z\",\n        \"created_at\": \"2026-04-23T08:49:40.710846Z\",\n        \"updated_at\": \"2026-04-23T08:49:40.710854Z\"\n    },\n    {\n        \"id\": \"f6b677ca-c1f9-49c1-8c43-090d861f7fc4\",\n        \"document\": \"8d772e49-153e-4997-8e12-04e076ebe228\",\n        \"title\": \"Getting Started 3\",\n        \"content\": \"Hello world, this is our test document.\",\n        \"version_number\": 1,\n        \"saved_by\": {\n            \"id\": \"31359348-a4d3-4eec-acdf-182558645635\",\n            \"username\": \"testuser\",\n            \"email\": \"test@test.com\",\n            \"first_name\": \"test\",\n            \"last_name\": \"user\",\n            \"phone\": \"9876543210\",\n            \"date_joined\": \"2026-04-23T05:06:42.404238Z\"\n        },\n        \"saved_at\": \"2026-04-23T08:42:20.044461Z\",\n        \"created_at\": \"2026-04-23T08:42:20.044429Z\",\n        \"updated_at\": \"2026-04-23T08:42:20.044437Z\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Document_Filtering",
+					"item": [
+						{
+							"name": "#31 - Documents_Filter_Search",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/?search=hello",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "hello"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#32 - Documents_Filter_Status_Draft",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/?status=DRAFT",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "DRAFT"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#33 - Documents_Filter_Status_Published",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/?status=PUBLISHED",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "PUBLISHED"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#34 - Documents_Filter_Workspace",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/?workspace={{workspace_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										""
+									],
+									"query": [
+										{
+											"key": "workspace",
+											"value": "{{workspace_id}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#35 - Documents_Filter_Date_Range",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/?created_after=2026-04-01",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										""
+									],
+									"query": [
+										{
+											"key": "created_after",
+											"value": "2026-04-01"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#36 - Documents_Filter_Combination",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/?search=started&status=PUBLISHED&created_after=2026-04-01",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "started"
+										},
+										{
+											"key": "status",
+											"value": "PUBLISHED"
+										},
+										{
+											"key": "created_after",
+											"value": "2026-04-01"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Document_Tags",
+					"item": [
+						{
+							"name": "#37 - Add_Tags_to_Document",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tag_ids\": [\r\n        \"{{tag1_id}}\",\r\n        \"{{tag2_id}}\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/documents/{{document3_id}}/tags/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										"{{document3_id}}",
+										"tags",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#38 - Get_Document_Tags",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/{{document3_id}}/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										"{{document3_id}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#39 - List_Tags_After_Tagging",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tags/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tags",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Document_Stats_and_Summary",
+					"item": [
+						{
+							"name": "#40 - Document_Stats",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/documents/{{document3_id}}}/stats/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										"{{document3_id}}}",
+										"stats",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "#41 - Document_Summary",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{access_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/documents/summary/",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										"summary",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "#23 - Create_Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Getting Started 2\",\r\n    \"content\": \"Hello world, this is our first document.\",\r\n    \"workspace\": \"{{workspace_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#24 - Create_Document_status_Published",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Getting Started 3\",\r\n    \"content\": \"Hello world, this is our test document.\",\r\n    \"workspace\": \"{{workspace_id}}\",\r\n    \"status\": \"PUBLISHED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#49 - Edge_Case_Create_Document_Missing_Title",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\": \"No title provided\",\r\n    \"workspace\": \"{{workspace_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#25 - List_Documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#26 - List_Document_Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/{{document3_id\n}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								"{{document3_id\n}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#27 - List_Document_Details_not_found",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/00000000-0000-0000-0000-000000000000/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								"00000000-0000-0000-0000-000000000000",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#28 - Update_Document",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Getting Started v2\",\r\n    \"content\": \"Updated content with more details.\",\r\n    \"workspace\": \"{{workspace_id}}\",\r\n    \"status\": \"DRAFT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/{{document3_id}}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								"{{document3_id}}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#29 - Update_Document_Partial",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"PUBLISHED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/documents/{{document3_id}}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								"{{document3_id}}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "#42 - Create_Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"{{document3_id}}\",\r\n    \"author_id\": \"{{user2_id}}\",\r\n    \"content\": \"Looks good! Ready for review.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#43 - Create_Reply",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"{{document3_id}}\",\r\n    \"author_id\": \"{{user1_id}}\",\r\n    \"content\": \"Thanks! I'll merge it.\",\r\n    \"parent\": \"{{comment_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#44 - List_Comments_for_Document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"document\": \"{{document3_id}}\",\r\n    \"author_id\": \"{{user1_id}}\",\r\n    \"content\": \"Thanks! I'll merge it.\",\r\n    \"parent\": \"{{comment_id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/comments/?document={{document3_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"comments",
+								""
+							],
+							"query": [
+								{
+									"key": "document",
+									"value": "{{document3_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Audit_Logs",
+			"item": [
+				{
+					"name": "#45 - List_All_Audit_Logs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/audit-logs/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"audit-logs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#46 - Audit_Logs_by_Object",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/audit-logs/?object_id={{document3_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"audit-logs",
+								""
+							],
+							"query": [
+								{
+									"key": "object_id",
+									"value": "{{document3_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "#47 - Audit_Logs_by_Action",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/audit-logs/?action=CREATED",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"audit-logs",
+								""
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "CREATED"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc3MDE1NDk2LCJpYXQiOjE3NzY5MjkwOTYsImp0aSI6IjY5YjM2ZjdmM2ViNzQzNjFhZTAxY2Q4ZDRjNjExODUwIiwidXNlcl9pZCI6IjMxMzU5MzQ4LWE0ZDMtNGVlYy1hY2RmLTE4MjU1ODY0NTYzNSJ9.KACZtoC7-euYpLsFjj0WaEpG0rqN2db2KHwOXh5G300",
+			"type": "string"
+		},
+		{
+			"key": "user1_id",
+			"value": "75433171-943f-4c1d-98f5-8d97b9fbbb51",
+			"type": "string"
+		},
+		{
+			"key": "user2_id",
+			"value": "31359348-a4d3-4eec-acdf-182558645635",
+			"type": "string"
+		},
+		{
+			"key": "user3_id\n",
+			"value": "a0bbc302-2da4-4975-a760-07c41486d457",
+			"type": "string"
+		},
+		{
+			"key": "workspace_id",
+			"value": "d3e51543-1b14-44f6-8e82-6d9b50c099a2",
+			"type": "string"
+		},
+		{
+			"key": "document1_id",
+			"value": "40f43379-c802-4f41-ae5f-ce4b33b699aa",
+			"type": "string"
+		},
+		{
+			"key": "document2_id",
+			"value": "260c2ab6-ec46-4b53-9e27-5c18ad42861f",
+			"type": "string"
+		},
+		{
+			"key": "document3_id",
+			"value": "8d772e49-153e-4997-8e12-04e076ebe228",
+			"type": "string"
+		},
+		{
+			"key": "tag1_id",
+			"value": "7bde6c2f-9e07-45d5-8c84-6e66e89ffa87",
+			"type": "string"
+		},
+		{
+			"key": "tag2_id",
+			"value": "1d873d94-53bc-4d4d-bbac-b36ebced6554",
+			"type": "string"
+		},
+		{
+			"key": "comment_id",
+			"value": "c65429ff-6d17-4ac2-bf08-884ff6495a5d",
+			"type": "string"
+		},
+		{
+			"key": "reply_id",
+			"value": "75ec2716-5153-4a48-899b-ccc7f723a270",
+			"type": "string"
+		}
+	]
+}
