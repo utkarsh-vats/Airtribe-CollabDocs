@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:18.3
+    env_file: .env.local
+    volumes:
+      - pgdata:/var/lib/postgresql
+    ports:
+      - 8080:5432
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    env_file: .env.local
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
