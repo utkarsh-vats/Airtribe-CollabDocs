@@ -5,10 +5,11 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql
     ports:
-      - 8080:5432
+      - 8081:5432
 
   web:
-    build: .
+    build: 
+      dockerfile: Dockerfile.ubuntu
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
@@ -20,3 +21,4 @@ services:
 
 volumes:
   pgdata:
+    name: collabdocs_pgdata
